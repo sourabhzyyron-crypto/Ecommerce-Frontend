@@ -10,6 +10,9 @@ import About from "./Pages/About";
 import Contact from "./Pages/Contact";
 import ProductPage from "./Pages/ProductPage";
 import WishlistPage from "./Pages/Wishlist";
+import Login from "./Pages/LoginPage";
+import CartPage from "./Components/CartPage";
+import SignUp from "./Pages/SignupPage";
 
 function HomePage() {
   return (
@@ -28,11 +31,15 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route path="/Category" element={<CategorySection />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
         <Route path="/Products" element={<ProductPage />} />
         <Route path="/Wishlist" element={<WishlistPage />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Signup" element={<SignUp />} />
+        <Route path="/Cart" element={<CartPage />} />
       </Routes>
     </BrowserRouter>
   );

@@ -18,7 +18,7 @@ export default function BestSellingSection() {
     },
     {
       id: 3,
-      title: "Black Slingback Heels",
+      title: "Black Slingback Heel",
       price: 73,
       oldPrice: 99,
       image:

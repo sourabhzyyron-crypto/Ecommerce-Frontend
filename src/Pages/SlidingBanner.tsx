@@ -40,7 +40,7 @@ const SlidingBanner: React.FC = () => {
   return (
     <div className="relative w-full h-[85vh] min-h-[650px] overflow-hidden bg-[#313447]">
       {/* Top Blend: A soft gradient to bridge the gap between White Header and Dark Banner */}
-      <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white/5 to-transparent z-20 pointer-events-none" />
+      <div className=" absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-white/5 to-transparent z-20 pointer-events-none" />
 
       <AnimatePresence mode="wait">
         <motion.div
@@ -77,7 +77,7 @@ const SlidingBanner: React.FC = () => {
           </div>
 
           {/* Image Side - Styled with a curve to blend with the soft UI of the header */}
-          <div className="flex-1 h-full w-full relative overflow-hidden md:rounded-tl-[120px] shadow-2xl">
+          <div className="mt-12 flex-1 h-full w-full relative overflow-hidden md:rounded-tl-[120px] shadow-2xl">
             <motion.div 
                initial={{ scale: 1.15, opacity: 0 }}
                animate={{ scale: 1, opacity: 1 }}
