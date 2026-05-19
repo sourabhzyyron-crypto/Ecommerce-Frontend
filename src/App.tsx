@@ -14,7 +14,7 @@ import Login from "./Pages/LoginPage";
 import CartPage from "./Components/CartPage";
 import SignUp from "./Pages/SignupPage";
 import Dashboard from "./Components/AdminDashboard.tsx";
-import   ProductDetail from "./Components/ProductDetail.tsx";
+
 
 
 function HomePage() {
@@ -44,7 +44,7 @@ function App() {
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Cart" element={<CartPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/product/:id" element={<ProductDetail={}/>} />
+
       </Routes>
     </BrowserRouter>
   );
