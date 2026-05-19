@@ -13,6 +13,8 @@ import WishlistPage from "./Pages/Wishlist";
 import Login from "./Pages/LoginPage";
 import CartPage from "./Components/CartPage";
 import SignUp from "./Pages/SignupPage";
+import Dashboard from "./Components/AdminDashboard.tsx";
+
 
 function HomePage() {
   return (
@@ -40,6 +42,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Cart" element={<CartPage />} />
+        <Route path="/Dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>
   );

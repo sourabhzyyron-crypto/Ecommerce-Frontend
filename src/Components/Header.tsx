@@ -2,7 +2,7 @@ import React from "react";
 import {
   MapPin,
   Phone,
-  Search,
+  Mail,
   User,
   ShoppingCart,
   ChevronDown,
@@ -40,8 +40,8 @@ const Header: React.FC = () => {
 
           {/* RIGHT */}
           <div className="flex items-center gap-2 text-white/90">
-            <Phone size={14} />
-            <span>+91 9876543210</span>
+            <Mail size={14} />
+            <span>Example@email.com</span>
           </div>
         </div>
       </div>
@@ -77,9 +77,6 @@ const Header: React.FC = () => {
           {/* RIGHT ACTIONS */}
           <div className="flex items-center gap-3 justify-end">
             {/* SEARCH */}
-            <button className="hidden md:flex items-center justify-center w-12 h-12 rounded-2xl bg-[#7072a8]/10 text-[#7072a8] hover:bg-[#7072a8] hover:text-white transition-all duration-300 hover:scale-110 shadow-md">
-              <Search size={20} />
-            </button>
 
             {/* WISHLIST */}
             <button className="hidden md:flex items-center justify-center w-12 h-12 rounded-2xl bg-[#7072a8]/10 text-[#7072a8] hover:bg-[#7072a8] hover:text-white transition-all duration-300 hover:scale-110 relative shadow-md">
@@ -101,9 +98,9 @@ const Header: React.FC = () => {
                   Welcome Back
                 </p>
 
-                <p className="text-sm font-bold text-gray-900">
+               <a href="/login" className="text-sm font-bold text-[#7072a8] hover:text-[#5a5c8a]">
                   Login / Signup
-                </p>
+                </a>
               </div>
             </div>
 
