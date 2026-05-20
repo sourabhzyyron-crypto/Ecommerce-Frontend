@@ -58,7 +58,7 @@ const categories = [
   },
 ];
 
-const Productcategories: React.FC = () => {
+const TrendingProducts: React.FC = () => {
   return (
     <section className="bg-[#f5f5f5] py-24 px-5 overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -153,4 +153,4 @@ const Productcategories: React.FC = () => {
   );
 };
 
-export default Productcategories;
+export default TrendingProducts;

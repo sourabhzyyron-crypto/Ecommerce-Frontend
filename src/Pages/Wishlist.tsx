@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Trash2, Heart } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 
 interface WishlistItem {
@@ -16,8 +17,7 @@ const wishlistData: WishlistItem[] = [
   {
     id: 1,
     name: "Nike Air Max 270",
-    image:
-      "https://images.unsplash.com/photo-1686931463322-916e93213d86?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8am9yZGFuJTIwYWlyfGVufDB8fDB8fHww",
+    image: "https://images.unsplash.com/photo-1686931463322-916e93213d86?w=600&auto=format&fit=crop&q=60",
     originalPrice: "$2500.00",
     currentPrice: "$3000.00",
     stockStatus: "In Stock",
@@ -26,8 +26,7 @@ const wishlistData: WishlistItem[] = [
   {
     id: 2,
     name: "Classy shirt",
-    image:
-      "https://plus.unsplash.com/premium_photo-1673356302031-86c27e061153?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8c2hpcnR8ZW58MHx8MHx8fDA%3D",
+    image: "https://plus.unsplash.com/premium_photo-1673356302031-86c27e061153?w=600&auto=format&fit=crop&q=60",
     currentPrice: "$16.00",
     stockStatus: "In Stock",
     addedDate: "December 6, 2019",
@@ -44,6 +43,14 @@ const wishlistData: WishlistItem[] = [
 ];
 
 const WishlistPage: React.FC = () => {
+  const navigate = useNavigate();
+  const [wishlist, setWishlist] = useState<WishlistItem[]>(wishlistData);
+
+  const removeItem = (e: React.MouseEvent, id: number) => {
+    e.stopPropagation();
+    setWishlist((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="max-w-full mx-auto px-4 py-8 font-sans text-gray-700">
       {/* Breadcrumb */}
@@ -66,16 +73,27 @@ const WishlistPage: React.FC = () => {
         <div className="col-span-3"></div>
       </div>
 
+      {/* Empty State */}
+      {wishlist.length === 0 && (
+        <p className="text-center text-gray-400 py-16 text-lg">
+          Your wishlist is empty.
+        </p>
+      )}
+
       {/* Wishlist Items */}
-      <div className="space-y-0 ">
-        {wishlistData.map((item) => (
+      <div className="space-y-0">
+        {wishlist.map((item) => (
           <div
             key={item.id}
-            className="grid grid-cols-1 md:grid-cols-12 items-center border-b border-gray-100 py-6 px-2 group"
+            onClick={() => navigate(`/ProductDetail/${item.id}`)}
+            className="grid grid-cols-1 md:grid-cols-12 items-center border-b border-gray-100 py-6 px-2 group cursor-pointer hover:bg-gray-50 transition-colors rounded-lg"
           >
             {/* Remove Icon */}
             <div className="col-span-1 flex justify-center md:justify-start mb-4 md:mb-0">
-              <button className="text-gray-300 hover:text-red-500 transition-colors">
+              <button
+                onClick={(e) => removeItem(e, item.id)}
+                className="text-gray-300 hover:text-red-500 transition-colors"
+              >
                 <Trash2 size={25} strokeWidth={1.5} />
               </button>
             </div>
@@ -85,9 +103,11 @@ const WishlistPage: React.FC = () => {
               <img
                 src={item.image}
                 alt={item.name}
-                className="w-30 h-35 object-cover bg-gray-50"
+                className="w-24 h-28 object-cover bg-gray-50 rounded-lg group-hover:scale-105 transition-transform duration-200"
               />
-              <span className="text-gray-600 font-medium text-30">{item.name}</span>
+              <span className="text-gray-600 font-medium group-hover:text-indigo-600 transition-colors">
+                {item.name}
+              </span>
             </div>
 
             {/* Price */}
@@ -112,7 +132,10 @@ const WishlistPage: React.FC = () => {
               <span className="text-[10px] text-gray-400">
                 Added on: {item.addedDate}
               </span>
-              <button className="bg-[#7072a8] hover:bg-[#5e60a8] text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors shadow-sm">
+              <button
+                onClick={(e) => e.stopPropagation()}
+                className="bg-[#7072a8] hover:bg-[#5e60a8] text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors shadow-sm"
+              >
                 Add to cart
               </button>
             </div>

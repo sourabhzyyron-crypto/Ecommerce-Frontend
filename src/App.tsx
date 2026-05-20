@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./Components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CategorySection from "./Pages/CategorySection";
+
 import HeroSection from "./Pages/HeroSection";
 import SlidingBanner from "./Pages/SlidingBanner";
 import BestSellingSection from "./Pages/BestSellingSection";
@@ -14,8 +14,9 @@ import Login from "./Pages/LoginPage";
 import CartPage from "./Components/CartPage";
 import SignUp from "./Pages/SignupPage";
 import Dashboard from "./Components/AdminDashboard.tsx";
-
-
+import ProductDetail from "./Components/ProductDetail.tsx";
+import TrendingSection from "./Pages/TrendingSection";
+import CategorySectionPage from "./Components/CategorySectionPage.tsx";
 
 function HomePage() {
   return (
@@ -23,7 +24,8 @@ function HomePage() {
       <Header />
       <SlidingBanner />
       <HeroSection />
-      <CategorySection />
+
+      <TrendingSection />
       <BestSellingSection />
       <Footer />
     </>
@@ -35,7 +37,10 @@ function App() {
       <Routes>
         <Route path="/home" element={<HomePage />} />
         <Route path="/" element={<HomePage />} />
-        <Route path="/Category" element={<CategorySection />} />
+        <Route
+          path="/Category/:categoryName"
+          element={<CategorySectionPage />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
         <Route path="/Products" element={<ProductPage />} />
@@ -44,7 +49,7 @@ function App() {
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Cart" element={<CartPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
-
+        <Route path="/ProductDetail/:id" element={<ProductDetail />} />
       </Routes>
     </BrowserRouter>
   );
