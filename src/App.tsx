@@ -17,6 +17,10 @@ import Dashboard from "./Components/AdminDashboard.tsx";
 import ProductDetail from "./Components/ProductDetail.tsx";
 import TrendingSection from "./Pages/TrendingSection";
 import CategorySectionPage from "./Components/CategorySectionPage.tsx";
+import CategoryManagement from "./Pages/categories.tsx";
+import BrandPage from "./Pages/brand.tsx";
+import AttributePage from "./Pages/attribute.tsx";
+import AdminProducts from "./Pages/manageProduct.tsx";
 
 function HomePage() {
   return (
@@ -50,6 +54,10 @@ function App() {
         <Route path="/Cart" element={<CartPage />} />
         <Route path="/Dashboard" element={<Dashboard />} />
         <Route path="/ProductDetail/:id" element={<ProductDetail />} />
+        <Route path="/CategoryManagement" element={<CategoryManagement />} />
+        <Route path="/brands" element={<BrandPage />} />
+        <Route path="/attributes" element={<AttributePage />} />
+        <Route path="/manageProducts" element={<AdminProducts />} />
       </Routes>
     </BrowserRouter>
   );

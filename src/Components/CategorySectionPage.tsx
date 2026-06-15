@@ -5,7 +5,7 @@ import {
   ShoppingBag,
   Heart,
   SlidersHorizontal,
-  X,
+
 } from "lucide-react";
 
 import Footer from "../Pages/Footer";
